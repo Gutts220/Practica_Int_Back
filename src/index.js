@@ -6,4 +6,4 @@ const app = new App([
     new BaseRoute()
 ])
 
-app.listen()
+app.listen();

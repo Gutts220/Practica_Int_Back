@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const DB_HOST = 'localhost';
 const DB_NAME = 'mongoStudenDB';
 const DB_PORT = 27017

@@ -3,10 +3,10 @@ const {Router} = require("express")
 class BaseRoute{
 
     path = '/alive'
-    router = router()
+    router = Router()
 
     constructor(){
-        this,initBaseRoutes()
+        this.initBaseRoutes()
     }
 
     initBaseRoutes() {
@@ -18,4 +18,4 @@ class BaseRoute{
     }
 }
 
-module.exports = BaseRoute
+module.exports = BaseRoute;

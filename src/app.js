@@ -6,7 +6,7 @@ const { mongoDBconnection } = require('./db/mongoConfig');
 
 const API_VERSION = "v1"
 
-class app{
+class App{
    app;
    env;
    port;
@@ -17,9 +17,9 @@ class app{
     this.env = "development";
     this.port = 5000;
     
-    this.connoctToDatabase();
+    this.connectToDataBase();
     this.initializeMiddleware();
-    this.initializeRoutes();
+    this.initializeRoutes(routes);
     this.initializeHandlerbars();
    }
 
@@ -34,7 +34,7 @@ class app{
      })
    }
 
-   async connoctToDatabase(){
+   async connectToDataBase(){
       //TODO: Inicializar la conexion
       await mongoDBconnection()
    }
@@ -58,7 +58,7 @@ class app{
    }
 
    listen(){
-    this.app.listen(this.port, ()=>{
+    this.app.listen(this.port, () => {
         displayRoutes(this.app);
         console.log(`======================================`)
         console.log(` === ENV: ${this.env}`)
@@ -68,4 +68,4 @@ class app{
    }
 }
 
-module.exports = app
+module.exports = App
