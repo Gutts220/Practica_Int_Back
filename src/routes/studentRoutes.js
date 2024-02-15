@@ -1,4 +1,4 @@
-const {Router, response} = require("express")
+const {Router} = require("express")
 const studentsData = require("../data/studentsData")
 const studentModel = require("../model/studentsModel")
 const StudentManager = require("../managers/studentsManager")
@@ -52,6 +52,7 @@ class StudentsRoute{
         }
         
         });
+        
       //RETORNAR UN ESTUDIANTE POR ID
         this.router.get(`${this.path}/:sid`, async (req, res) => {
             try {

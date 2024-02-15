@@ -2,6 +2,7 @@ const studentModel = require("../model/studentsModel")
 
 
 class StudentManager{
+    
     getAllStudent = async() =>{
         try {
             const students = await studentModel.find({})
