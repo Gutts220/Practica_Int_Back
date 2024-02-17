@@ -81,6 +81,32 @@ class StudentsRoute{
             }
       });
 
+      this.router.post (`${this.path}`, async (req, res) => {
+        try {
+            //TODO hacer validaciones del body
+            const studentBody = req.body;
+
+            //TODO revisando si el estudiante ya fue creado anteriormente
+            const newStudent = await this.studentManager.createStudent(studentBody);
+            if (!newStudent){
+                return res.json({
+                    message: `the student with dni ${studentBody.dni} is alredy register`,
+                });
+            }
+
+            return res.json({
+                message: `student created successfully`,
+                student: newStudent,
+            });
+
+        } catch (error) {
+
+            console.log("🚀 ~ file: students.routes.js:79 ~ StudentsRoutes ~ this.router.post ~ error:",
+            error);
+            return res.status(500).json({ ok: false, message: error.message });
+        }
+      })
+
       
     }
 }
